@@ -83,8 +83,34 @@
   font: var(--dsw-font-xxs-12);
 }
 
-/* Origin is the column an operator scans, so it leads the row and carries the
-   only color in it. */
+.skillRow {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  padding: 10px 12px;
+}
+
+.skillName {
+  min-width: 0;
+  color: var(--dsw-alias-label-primary);
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.skillDescription {
+  min-width: 0;
+  color: var(--dsw-alias-label-tertiary);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.skillMetadata {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+
 .origin {
   flex: none;
   min-width: 54px;

@@ -111,6 +111,19 @@ describe('the skills pane', () => {
       .toContain(zh['skills.userOnly'])
   })
 
+  it('keeps a long skill name and description above its metadata and edit action', async () => {
+    mount({ listSkills: () => Promise.resolve([{
+      name: 'dsh-ci-test-reliability',
+      description: 'Design and diagnose tests that use subprocesses, asynchronous teardown and shared host resources.',
+      source: 'project-agents',
+      modelInvocable: true,
+      path: '/w/.agents/skills/dsh-ci-test-reliability/SKILL.md',
+    }]) })
+
+    const name = await screen.findByText('dsh-ci-test-reliability')
+    expect(name.closest('li')).toMatchSnapshot()
+  })
+
   it('reports how many are reachable', async () => {
     mount()
 

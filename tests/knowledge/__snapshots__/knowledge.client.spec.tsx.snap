@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`the skills pane > keeps a long skill name and description above its metadata and edit action 1`] = `
+<li
+  class="_row_09d0c2 _skillRow_09d0c2"
+>
+  <span
+    class="_skillName_09d0c2"
+  >
+    dsh-ci-test-reliability
+  </span>
+  <span
+    class="_skillDescription_09d0c2"
+  >
+    Design and diagnose tests that use subprocesses, asynchronous teardown and shared host resources.
+  </span>
+  <div
+    class="_skillMetadata_09d0c2"
+  >
+    <span
+      class="_origin_09d0c2 _project_09d0c2"
+    >
+      项目
+    </span>
+    <span
+      class="_flag_09d0c2"
+    >
+      模型可调用
+    </span>
+    <button
+      class="_openButton_09d0c2"
+      type="button"
+    >
+      编辑
+    </button>
+  </div>
+</li>
+`;

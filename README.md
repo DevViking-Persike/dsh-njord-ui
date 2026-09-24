@@ -14,7 +14,7 @@ The published Git repository includes `lib/`; installation runs no build script.
 
 - Docker container and image inspection, logs, lifecycle controls and confirmations for removal.
 - Treadmill stages, cursor, configurable gates and stage enablement; Red Team and Deploy remain enabled unless changed in the stage table.
-- Knowledge sources and Treadmill assets, with workspace-restricted file reads.
+- Knowledge sources and Treadmill assets, with workspace-restricted file reads. Skill cards keep the complete name and description on separate lines, with wrapping metadata and edit actions below.
 - Archify submits a normal, logged skill request to the selected conversation. The host must supply the Archify skill.
 
 Knowledge file access does not install a code editor. The `editor` Remote namespace is retained for compatibility with the file readers. The backend's language-server inventory currently requires the Persike `describeProviders()` API.

@@ -384,20 +384,22 @@ export function KnowledgeSection({
                   <p className={css.note}>{t('skills.count', { count: String(skills.items.length) })}</p>
                   <ul className={css.list}>
                     {skills.items.map(skill => (
-                      <li key={skill.name} className={css.row}>
-                        <span className={clsx(css.origin, css[originOf(skill.source)])}>
-                          {t(`origin.${originOf(skill.source)}` as const)}
-                        </span>
-                        <span className={css.name}>{skill.name}</span>
-                        <span className={css.detail}>{skill.description}</span>
-                        <span className={css.flag}>
-                          {skill.modelInvocable ? t('skills.modelInvocable') : t('skills.userOnly')}
-                        </span>
-                        {skill.path !== undefined && (
-                          <button type="button" className={css.openButton} onClick={() => { if (skill.path !== undefined) edit(skill.path) }}>
-                            {t('edit')}
-                          </button>
-                        )}
+                      <li key={skill.name} className={clsx(css.row, css.skillRow)}>
+                        <span className={css.skillName}>{skill.name}</span>
+                        <span className={css.skillDescription}>{skill.description}</span>
+                        <div className={css.skillMetadata}>
+                          <span className={clsx(css.origin, css[originOf(skill.source)])}>
+                            {t(`origin.${originOf(skill.source)}` as const)}
+                          </span>
+                          <span className={css.flag}>
+                            {skill.modelInvocable ? t('skills.modelInvocable') : t('skills.userOnly')}
+                          </span>
+                          {skill.path !== undefined && (
+                            <button type="button" className={css.openButton} onClick={() => { if (skill.path !== undefined) edit(skill.path) }}>
+                              {t('edit')}
+                            </button>
+                          )}
+                        </div>
                       </li>
                     ))}
                   </ul>
