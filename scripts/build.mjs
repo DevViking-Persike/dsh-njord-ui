@@ -1,6 +1,6 @@
 import { build } from 'esbuild'
 import { transform } from 'lightningcss'
-import { readFile, mkdir } from 'node:fs/promises'
+import { readFile, mkdir, writeFile } from 'node:fs/promises'
 import { dirname, resolve, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
@@ -28,3 +28,8 @@ await build({
     },
   }],
 })
+
+// Keep generated comments independent of the developer checkout.
+const output = resolve(root, 'lib/client.js')
+const code = await readFile(output, 'utf8')
+await writeFile(output, code.replaceAll(root + '/', '').replace(/[ \t]+$/gm, ''))
