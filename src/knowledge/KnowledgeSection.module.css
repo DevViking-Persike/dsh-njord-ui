@@ -1,0 +1,256 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+
+  /* The section renders inside the settings panel — an elevated surface — and
+     its lists scroll, so the thumb rebinds to the l2 pair; the l1 thumb differs
+     only in the dark palette, where an unrebound thumb reads as the wrong
+     elevation. */
+  --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
+  --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
+}
+
+.tabs {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 8px;
+  border-bottom: 0.5px solid var(--dsw-alias-border-l2);
+}
+
+.tab {
+  height: 24px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: var(--dsw-alias-label-secondary);
+  background: transparent;
+  cursor: pointer;
+  font: var(--dsw-font-xxs-12);
+}
+
+.tab:hover {
+  color: var(--dsw-alias-label-primary);
+  background: var(--dsw-alias-interactive-bg-hover);
+}
+
+.tabActive {
+  color: var(--dsw-alias-label-primary);
+  border-color: var(--dsw-alias-border-l2);
+  background: var(--dsw-alias-interactive-bg-active);
+}
+
+.note {
+  margin: 0;
+  color: var(--dsw-alias-label-tertiary);
+  font: var(--dsw-font-xxs-12);
+}
+
+.list {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-height: min(62vh, 620px);
+  margin: 0;
+  padding: 0 6px 0 0;
+  list-style: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  border: 0.5px solid var(--dsw-alias-border-l2);
+  border-radius: 6px;
+  font: var(--dsw-font-xxs-12);
+}
+
+/* Origin is the column an operator scans, so it leads the row and carries the
+   only color in it. */
+.origin {
+  flex: none;
+  min-width: 54px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  text-align: center;
+  background: var(--dsw-alias-bg-layer-3);
+}
+
+.project {
+  color: var(--dsw-alias-state-success-primary);
+}
+
+.user {
+  color: var(--dsw-alias-state-business-primary);
+}
+
+.composition {
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.name {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--dsw-alias-label-primary);
+  overflow: hidden;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detail {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--dsw-alias-label-tertiary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.flag {
+  flex: none;
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.rowActions {
+  display: flex;
+  flex: none;
+  gap: 6px;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.openButton {
+  flex: none;
+  height: 22px;
+  padding: 0 10px;
+  border: 0.5px solid var(--dsw-alias-border-l2);
+  border-radius: 4px;
+  color: var(--dsw-alias-label-primary);
+  background: transparent;
+  cursor: pointer;
+  font: var(--dsw-font-xxs-12);
+}
+
+.openButton:hover {
+  background: var(--dsw-alias-interactive-bg-hover);
+}
+
+.docTitle {
+  color: var(--dsw-alias-label-tertiary);
+  font: var(--dsw-font-xxs-12);
+}
+
+.body {
+  margin: 0;
+  padding: 10px;
+  border: 0.5px solid var(--dsw-alias-border-l2);
+  border-radius: 6px;
+  background: var(--dsw-alias-bg-layer-3);
+  color: var(--dsw-alias-label-primary);
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font: var(--dsw-font-markdown-code-block-small);
+}
+
+/* A repository can hold a few hundred decision records; the list is unusable
+   without a way to narrow it. */
+.filter {
+  flex: none;
+  height: 26px;
+  padding: 0 8px;
+  border: 0.5px solid var(--dsw-alias-border-l2);
+  border-radius: 4px;
+  color: var(--dsw-alias-label-primary);
+  background: var(--dsw-alias-bg-layer-3);
+  font: var(--dsw-font-xxs-12);
+}
+
+.filter:focus-visible {
+  outline: 1px solid var(--dsw-alias-state-business-primary);
+  outline-offset: 1px;
+}
+
+@media (max-width: 720px) {
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .name {
+    flex-basis: calc(100% - 8px);
+  }
+
+  .rowActions {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.editor {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 420px;
+  padding: 12px;
+  border: 0.5px solid var(--dsw-alias-border-l2);
+  border-radius: 8px;
+  background: var(--dsw-alias-bg-layer-2);
+  color: var(--dsw-alias-label-primary);
+  font: var(--dsw-font-markdown-code-block-small);
+  resize: vertical;
+}
+.toggle {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 8px 0;
+  color: var(--dsw-alias-label-primary);
+  font: var(--dsw-font-xs-13);
+}
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 12px;
+}
+.groupTitle {
+  margin: 0;
+  font: var(--dsw-font-s-strong-14);
+}
+.groupHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.newForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.filePath {
+  flex: 1;
+  min-width: 0;
+  color: var(--dsw-alias-label-primary);
+  font: var(--dsw-font-xs-13);
+  overflow-wrap: anywhere;
+}
