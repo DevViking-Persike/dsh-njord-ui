@@ -6,7 +6,7 @@ The panels use the Host APIs from `@persike/dsh-project-tools`. They register th
 
 ## Install
 
-Install `github:DevViking-Persike/dsh-njord` through the Harness plugin manager for the complete profile. To compose manually, install `github:DevViking-Persike/dsh-project-tools` and its Treadmill dependency before this bundle. Disable any built-in `ui-docker`, `ui-treadmill`, `ui-knowledge` and Archify contributions from the Persike fork; two copies must not register the same slot IDs or Remote namespaces.
+Use the complete pinned installation command and bundle-selection instructions in [DSH NJORD](https://github.com/DevViking-Persike/dsh-njord). `@persike/dsh-project-tools` is a required semver peer; install it and Treadmill as direct profile dependencies in the same operation. Git URLs do not appear in transitive dependencies, so pnpm can retain its default `blockExoticSubdeps` protection. The CLI activates newly installed bundles automatically: select only the NJORD aggregate for these components before restarting the profile. Disable any built-in `ui-docker`, `ui-treadmill`, `ui-knowledge` and Archify contributions from the Persike fork; two copies must not register the same slot IDs or Remote namespaces.
 
 The published Git repository includes `lib/`; installation runs no build script. This release targets the Persike Harness SDK `0.1.6-alpha.2`. Compatibility with later upstream versions is not established.
 

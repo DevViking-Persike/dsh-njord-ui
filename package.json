@@ -24,12 +24,11 @@
   ],
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node --test tests/package.test.mjs",
+    "test": "node --test tests/*.test.mjs",
     "test:sdk": "node scripts/test-sdk.mjs",
     "typecheck:sdk": "node scripts/typecheck-sdk.mjs"
   },
   "dependencies": {
-    "@persike/dsh-project-tools": "git+https://github.com/DevViking-Persike/dsh-project-tools.git#86f22e087815b049d1f2f1e37c2ca04271a539ec",
     "clsx": "^2.0.0"
   },
   "peerDependencies": {
@@ -46,7 +45,8 @@
     "@deepseek-ai/dsh-api-session-controller": "0.1.6-alpha.2",
     "@deepseek-ai/dsh-client-ui-settings": "0.1.6-alpha.2",
     "@deepseek-ai/dsh-client-ui-chat": "0.1.6-alpha.2",
-    "@deepseek-ai/dsh-token-meter": "0.1.6-alpha.2"
+    "@deepseek-ai/dsh-token-meter": "0.1.6-alpha.2",
+    "@persike/dsh-project-tools": "0.1.0"
   },
   "devDependencies": {
     "esbuild": "^0.25.0",
